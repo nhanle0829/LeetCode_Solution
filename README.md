@@ -4,15 +4,16 @@ Welcome to my LeetCode solutions repository! Here you’ll find solutions to var
 
 ## Repository Structure
 
-This repository is organized into folders by programming language and problem. Here’s a breakdown of the structure:
+The repository is organized into the following main categories:
 
-- **`python/`**: Solutions in Python
-- **`cpp/`**: Solutions in C++
+- **`python/`**: Python solutions
+  - **`two-pointers/`**: Solutions for problems involving the Two Pointers technique
+  - **`hashing/`**: Solutions for problems involving Hash Functions
+  - **`backtracking/`**: Solutions for problems involving Backtracking
 
+- **`cpp/`**: C++ solutions
+  - **`two-pointers/`**: Solutions for problems involving the Two Pointers technique
+  - **`hashing/`**: Solutions for problems involving Hash Functions
+  - **`backtracking/`**: Solutions for problems involving Backtracking
 
-Each language folder contains subfolders named after the LeetCode problems. For example, if you have a solution for the problem "Two Sum", you might find it in:
-
-- `python/two-sum/solution.py`
-- `java/two-sum/Solution.java`
-- `cpp/two-sum/solution.cpp`
-- `javascript/two-sum/solution.js`
+Each problem folder contains a solution file in the respective programming language.
