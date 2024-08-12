@@ -17,3 +17,5 @@ The repository is organized into the following main categories:
   - **`backtracking/`**: Solutions for problems involving Backtracking
 
 Each problem folder contains a solution file in the respective programming language.
+
+Inspired by NeetCode
