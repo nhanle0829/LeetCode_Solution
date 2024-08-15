@@ -3,11 +3,11 @@ from operator import truediv
 
 class Solution(object):
     def containsDuplicate(self, nums):
-        hashSet = set()
+        hash_set = set()
         for num in nums:
-            if num in hashSet:
+            if num in hash_set:
                 return True
-            hashSet.add(num)
+            hash_set.add(num)
         return False
 
 
