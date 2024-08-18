@@ -1,7 +1,4 @@
-from operator import truediv
-
-
-class Solution(object):
+class Solution:
     def containsDuplicate(self, nums):
         hash_set = set()
         for num in nums:
