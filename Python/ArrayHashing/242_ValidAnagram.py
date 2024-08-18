@@ -1,5 +1,7 @@
 class Solution():
     def isAnagram(self, s, t):
+        if len(s) != len(t):
+            return False
         letter_hash = [0] * 26
         for char in s:
             letter_hash[ord(char) - ord('a')] += 1
