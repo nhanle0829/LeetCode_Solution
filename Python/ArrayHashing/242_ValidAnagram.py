@@ -1,7 +1,14 @@
 class Solution():
     def isAnagram(self, s, t):
-        pass
-
+        letter_hash = [0] * 26
+        for char in s:
+            letter_hash[ord(char) - ord('a')] += 1
+        for char in t:
+            letter_hash[ord(char) - ord('a')] -= 1
+        for i in range(26):
+            if letter_hash[i] != 0:
+                return False
+        return True
 
 if __name__ == "__main__":
     test_obj = Solution()
