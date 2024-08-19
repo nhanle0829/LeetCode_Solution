@@ -10,11 +10,12 @@ class Solution:
         res = []
         index = 0
         while index < len(s):
-            length = ''
-            while s[index] != '#':
-                length += s[index]
-                index += 1
-            length = int(length)
-            res.append(s[index + 1: index + 1 + length])
-            index += length + 1
+            end = index
+            while s[end] != '#':
+                end += 1
+            length = int(s[index: end])
+            index = end + 1
+            end = index + length
+            res.append(s[index: end])
+            index = end
         return res
