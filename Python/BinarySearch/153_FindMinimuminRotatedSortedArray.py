@@ -12,4 +12,3 @@ class Solution:
                 min_value = min(min_value, nums[mid])
 
         return min_value
-    
