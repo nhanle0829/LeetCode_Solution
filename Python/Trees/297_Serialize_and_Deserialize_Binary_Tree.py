@@ -1,15 +1,35 @@
 class Codec:
 
     def serialize(self, root):
-        """Encodes a tree to a single string.
-
-        :type root: TreeNode
-        :rtype: str
-        """
+        res = []
+        queue = collections.deque()
+        queue.append(root)
+        while queue:
+            root = queue.popleft()
+            if root:
+                res.append(str(root.val))
+                queue.append(root.left)
+                queue.append(root.right)
+            else:
+                res.append("N")
+        return ",".join(res)
 
     def deserialize(self, data):
-        """Decodes your encoded data to tree.
+        if data == "N":
+            return None
 
-        :type data: str
-        :rtype: TreeNode
-        """
+        data = data.split(",")
+        root = TreeNode(data[0])
+        i = 1
+        queue = collections.deque()
+        queue.append(root)
+        while queue:
+            curr = queue.popleft()
+            if i < len(data) and data[i] != "N":
+                curr.left = TreeNode(int(data[i]))
+                queue.append(curr.left)
+            if i + 1 < len(data) and data[i + 1] != "N":
+                curr.right = TreeNode(int(data[i + 1]))
+                queue.append(curr.right)
+            i += 2
+        return root
