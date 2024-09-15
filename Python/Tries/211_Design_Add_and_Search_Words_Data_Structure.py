@@ -1,21 +1,15 @@
-class TrieNode:
-    def __init__(self):
-        self.children = {}
-        self.end_of_word = False
-
-
 class WordDictionary:
 
     def __init__(self):
-        self.root = TrieNode()
+        self.root = {}
 
     def addWord(self, word: str) -> None:
         curr = self.root
         for char in word:
-            if char not in curr.children:
-                curr.children[char] = TrieNode()
-            curr = curr.children[char]
-        curr.end_of_word = True
+            if char not in curr:
+                curr[char] = {}
+            curr = curr[char]
+        curr["end"] = True
 
     def search(self, word: str) -> bool:
 
@@ -23,14 +17,14 @@ class WordDictionary:
             curr = root
             for i in range(index, len(word)):
                 if word[i] == '.':
-                    for child in curr.children.values():
-                        if dfs(i + 1, child):
+                    for char in curr:
+                        if char != "end" and dfs(i + 1, curr[char]):
                             return True
                     return False
                 else:
-                    if word[i] not in curr.children:
+                    if word[i] not in curr:
                         return False
-                    curr = curr.children[word[i]]
-            return curr.end_of_word
+                    curr = curr[word[i]]
+            return "end" in curr
 
         return dfs(0, self.root)
