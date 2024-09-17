@@ -18,3 +18,34 @@ class Solution:
                 if in_degree[nei] == 0:
                     queue.append(nei)
         return res if count == numCourses else []
+
+
+class Solution2:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        pre_map = {i: [] for i in range(numCourses)}
+        for crs, pre in prerequisites:
+            pre_map[crs].append(pre)
+
+        output = []
+        visited, cycle = set(), set()
+
+        def dfs(crs):
+            if crs in cycle:
+                return False
+            if crs in visited:
+                return True
+
+            visited.add(crs)
+            cycle.add(crs)
+            for pre in pre_map[crs]:
+                if not dfs(pre):
+                    return False
+
+            output.append(crs)
+            cycle.remove(crs)
+            return True
+
+        for crs in range(numCourses):
+            if not dfs(crs):
+                return []
+        return output
